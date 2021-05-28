@@ -1,69 +1,45 @@
 #include <iostream>
 #include "Commodity.h"
 
-#define N 10 // 定义数组长度
-
 using namespace std;
 
+CCommodity::CCommodity() {
+	cout << "CommodityInfo is being created!" << endl;
+}
+
+void CCommodity::setInfo(long ld, char upc, char name, double price, char manu) {
+	m_nld = ld;
+	m_pszUpc = &upc;
+	m_pszName = &name;
+	m_dPrice = price;
+	m_pszManufacturer = &manu;
+}
+
+void CCommodity::acquire(char& upc) {
+	m_pszUpc = &upc;
+	if (*m_pszUpc) {
+		showInfo();
+	}
+}
+
+void CCommodity::showInfo() {
+	cout << "商品名称：" << *m_pszName
+		<< "单价：" << m_dPrice
+		<< "制造商信息：" << *m_pszManufacturer << endl;
+}
+
+void CCommodity::total(int num) {
+	double totalVal = m_dPrice * num;
+	cout << "已选商品总价为：" << total << endl;
+}
+
+CCommodity::~CCommodity()
+{
+}
+
+
 int main() {
-	// 定义第一个商品信息
-	char commodityUpc1[N] = "A00A";
-	char commodityName1[N] = "Apple" ;
-	char commodityManu1[N] = "CN";
-
-	// 创建第一个商品对象，并对应初始化类成员变量
 	CCommodity commodity1;
-	commodity1.setInfo(1001, commodityUpc1, commodityName1, 1.1, commodityManu1);
-
-
-	// 同上
-	char commodityUpc2[N] = "B00B";
-	char commodityName2[N] = "Banana";
-	char commodityManu2[N] = "JP";
-
-	CCommodity commodity2;
-	commodity2.setInfo(1002, commodityUpc2, commodityName2, 2.2, commodityManu2);
-
-	// 同上
-	char commodityUpc3[N] = "C00C";
-	char commodityName3[N] = "Corn";
-	char commodityManu3[N] = "US";
-
-	CCommodity commodity3;
-	commodity3.setInfo(1003, commodityUpc3, commodityName3, 3.3, commodityManu3);
-
-	// 展示产品代码
-	cout << "所有产品代码为:" 
-		 << commodityUpc1 << "\t"
-		 << commodityUpc2 << "\t"
-		 << commodityUpc3 << endl;
-
-	// 用户选择产品
-	cout << "请输入产品代码:" << endl;
-	char acquireUpc[10] = {};
-	cin >> acquireUpc;
-
-	// 根据用户选择的产品代码，显示对应的产品信息
-	if (strcmp(acquireUpc, commodityUpc1) == 0) {
-		commodity1.acquire(acquireUpc);
-		cout << "请输入购买数量："; // 计算总价
-		int num;
-		cin >> num;
-		commodity1.total(num);
-	}
-	else if (strcmp(acquireUpc, commodityUpc2) == 0) {
-		commodity2.acquire(acquireUpc); cout << "请输入购买数量：";
-		int num;
-		cin >> num;
-		commodity2.total(num);
-	}
-	else if (strcmp(acquireUpc, commodityUpc3) == 0) {
-		commodity3.acquire(acquireUpc); cout << "请输入购买数量：";
-		int num;
-		cin >> num;
-		commodity3.total(num);
-
-	}
-	
+	commodity1.setInfo(100001, 'A', );
 	return 0;
 }
