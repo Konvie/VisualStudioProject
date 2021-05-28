@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Commodity.cpp" />
     <ClCompile Include="pos.cpp" />
   </ItemGroup>
   <ItemGroup>
