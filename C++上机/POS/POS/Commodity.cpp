@@ -30,8 +30,8 @@ void CCommodity::acquire(char upc[]) {
 // 展示产品信息
 void CCommodity::showInfo() {
 	cout << "商品名称："; outPut(m_pszName);
-	cout << "\t";
-	cout << "单价：" << m_dPrice << "\t";
+	cout << "\n";
+	cout << "单价：" << m_dPrice << "\n";
 	cout << "制造商信息："; outPut(m_pszManufacturer);
 	cout << endl;
 }

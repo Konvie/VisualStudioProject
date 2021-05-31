@@ -7,6 +7,14 @@ using namespace std;
 
 int main() {
 	// 定义第一个商品信息
+	/* 如果用new分配内存空间也可以，最好是vector
+	 *	char* commodityUpc1 = new char[10]{};
+	 *	cout << "输入第一个Upc：" << endl;
+	 *	cin >> commodityUpc1;
+	*/
+	cout << "欢迎登录商品信息系统！" << endl;
+	cout << "========================================================" << endl;
+
 	char commodityUpc1[N] = "A00A";
 	char commodityName1[N] = "Apple";
 	char commodityManu1[N] = "CN";
@@ -37,6 +45,7 @@ int main() {
 		<< commodityUpc1 << "\t"
 		<< commodityUpc2 << "\t"
 		<< commodityUpc3 << endl;
+	cout << "========================================================" << endl;
 
 	// 用户选择产品
 	cout << "请输入产品代码:" << endl;
@@ -64,6 +73,7 @@ int main() {
 		commodity3.total(num);
 
 	}
+	// delete[] commodityUpc1;
 
 	return 0;
 }
