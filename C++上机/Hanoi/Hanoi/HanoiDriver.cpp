@@ -28,9 +28,9 @@ public:
 			Show(n, source, target);
 		}
 		else {
-			Move(n - 1, source, station, target);
+			Move(n - 1, source, target, station);
 			Show(n, source, station);
-			Move(n - 1, target, source, station);
+			Move(n - 1, station, source, target);
 		}
 	}
 };
