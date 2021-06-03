@@ -29,7 +29,7 @@ public:
 		}
 		else {
 			Move(n - 1, source, target, station);
-			Show(n, source, station);
+			Show(n, source, target);
 			Move(n - 1, station, source, target);
 		}
 	}
@@ -38,6 +38,6 @@ CHanoi* CHanoi::m_pInstance = NULL;
 
 int main() {
 	CHanoi* p = CHanoi::GetInstance();
-	p->Move(5, 'A', 'B', 'C');
+	p->Move(3, 'A', 'B', 'C');
 	return 0;
 }

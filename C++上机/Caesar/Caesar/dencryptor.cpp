@@ -1,16 +1,13 @@
-//#define _CRT_SECURE_NO_WARNINGS 1
+#include <iostream>
 #include "Caesar.h"
 
+using namespace std;
 
-int main()
-{
-
-	//CCaesar caesar;
+int main() {
 	CCaesar* caesar = CCaesar::getinstance();
 	char plain[size];  //明文
 	char cipher[size];  //密文
 	CCaesar::init_Code();
-	//caesar.init_Code();  //初始化密码表
 	/*
 	单例模式分为饿汉模式和懒汉模式
 	单例模式中：一个类只能创建一个对象，即单例模式，该模式可以保证系统中该类只有一个实例，
@@ -21,22 +18,18 @@ int main()
 	*/
 
 	int num;
-	while (1)
-	{
-		//caesar.menu();
+	while (1) {
 		CCaesar::menu();
 		cout << endl;
+
 		cout << "请输入你要实现的功能：";
 		cin >> num;
-		while (num != 0 && num != 1 && num != 2 && num != 3)
-		{
+		while (num != 0 && num != 1 && num != 2 && num != 3) {
 			cout << "选择错误，请重新输入：";
 			cin >> num;
 		}
-		//cout << "num=" << num << endl;
 
-		switch (num)
-		{
+		switch (num) {
 		default:cout << "选择错误，请重新选择！" << endl;
 			break;
 		case 0:
@@ -45,17 +38,13 @@ int main()
 			break;
 		case 1:
 			cout << "开始加密！" << endl;
-			//cout << "密码表为：" << endl;
-
-			//caesar.print_Code();
 
 			cout << "请输入明文（大小不超过32个字符）:" << endl;
 			cin >> plain;
-			//caesar.Encrypt(plain);
+
 			CCaesar::Encrypt(plain);
 			cout << "加密结果如下：" << endl;
-			for (int i = 0; i < (int)strlen(plain); i++)
-			{
+			for (int i = 0; i < (int)strlen(plain); i++) {
 				cout << plain[i];
 			}
 			cout << endl;
@@ -65,26 +54,18 @@ int main()
 			cout << "开始解密！" << endl;
 			cout << "请输入密文（大小不超过32个字符）:" << endl;
 			cin >> cipher;
-			//caesar.Decrypt(cipher);
+
 			CCaesar::Decrypt(cipher);
 			cout << "解密结果如下：" << endl;
-			for (int i = 0; i < (int)strlen(cipher); i++)
-			{
+			for (int i = 0; i < (int)strlen(cipher); i++) {
 				cout << cipher[i];
 			}
 			cout << endl;
 			break;
 		case 3:
-			//caesar.print_Code();  //显示密码表
 			CCaesar::print_Code();
 			break;
 		}
-		CCaesar::deleteCaesar();
-
 	}
-
-
-
-
-
+	CCaesar::deleteCaesar();
 }
